@@ -51,6 +51,7 @@ exports.signUp = async (req, res) => {
 };
 
 
+
 exports.login = async (req, res) => {
 
     // checking user exits
@@ -100,7 +101,18 @@ exports.login = async (req, res) => {
         accessToken: accessToken
     })
     return;
+}
 
+exports.users = async (req, res) => {
+    const user = await User.findOne({});
+    console.log("get is called");
 
+    res.status(200).send({
+        name: user.name,
+        userId: user.userId,
+        email: user.email,
+        userStatus: user.userStatus
+    })
+    return;
 
 }
