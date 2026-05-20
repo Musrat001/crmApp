@@ -46,7 +46,9 @@ app.use(express.json());
 //     console.log("Test route hit");
 //     res.send("Working");
 // });
+const cors = require("cors");
 
+app.use(cors());
 app.use("/crm/api/v1", auth_routes);
 app.listen(process.env.PORT || 27017, () => {
     console.log(`Server has started running on ${process.env.PORT}`);
