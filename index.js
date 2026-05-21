@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs");
 
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        const mongo_url = await mongoose.connect(process.env.MONGODB_URI);
         console.log("Mongodb connected successfully..");
         const user = await User.findOne({ userType: "ADMIN" });
         // console.log(user);

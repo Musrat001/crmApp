@@ -7,7 +7,8 @@ validateUserRequestBody = async (req, res, next) => {
     // console.log(`request data is ${req.body.email}`);
     // console.log(`request data is ${req.body.password}`);
     // console.log(`request data is ${req.body.userType}`);
-
+    console.log(req.method);
+    
     if (!req.body.name) {
         res.status(400).send({
             message: "User name required.."
