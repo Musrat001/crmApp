@@ -105,16 +105,16 @@ exports.login = async (req, res) => {
 
 exports.users = async (req, res) => {
     const user = await User.find({});
-    res.send("get is called");
-    return;
-
-    // res.status(200).send({
-    //     name: user.name,
-    //     userId: user.userId,
-    //     email: user.email,
-    //     userStatus: user.userStatus,
-    //     message: "Get is working"
-    // })
+    // res.send("get is called");
     // return;
+
+    res.status(200).send({
+        name: user.name,
+        userId: user.userId,
+        email: user.email,
+        userStatus: user.userStatus,
+        message: "Get is working"
+    })
+    return;
 
 }
