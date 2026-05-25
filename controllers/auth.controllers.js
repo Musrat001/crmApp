@@ -109,9 +109,8 @@ exports.users = async (req, res) => {
     // return;
 
     res.status(200).send({
-        user: user,
 
-        message: "Are you gay right now, (English wala gay)."
+        message: "Are you gay right now?, (English wala gay)."
     })
     return;
 
