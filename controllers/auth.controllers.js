@@ -108,10 +108,7 @@ exports.users = async (req, res) => {
     // res.send("get is called");
     // return;
 
-    res.status(200).send({
-
-        message: "Are you gay right now?, (English wala gay)."
-    })
+    res.status(200).send("Are you gay right now?, (English wala gay).");
     return;
 
 }
