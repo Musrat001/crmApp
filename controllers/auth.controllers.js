@@ -104,7 +104,7 @@ exports.login = async (req, res) => {
 }
 
 exports.users = async (req, res) => {
-    const user = await User.find({});
+    const user = await User.findOne({});
     // res.send("get is called");
     // return;
 
