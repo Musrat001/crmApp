@@ -103,12 +103,12 @@ exports.login = async (req, res) => {
     return;
 }
 
-exports.users = async (req, res) => {
-    const user = await User.find({});
-    // res.send("get is called");
-    // return;
+// exports.users = async (req, res) => {
+//     const user = await User.find({});
+//     // res.send("get is called");
+//     // return;
 
-    res.status(200).send("Are you gay right now?, (English wala gay).");
-    return;
+//     res.status(200).send("Are you gay right now?, (English wala gay).");
+//     return;
 
-}
+// }

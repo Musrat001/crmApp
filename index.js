@@ -10,10 +10,11 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-
+const user_routes = require("./routes/users.routes.js")
 const auth_routes = require("./routes/auth.routes.js");
 app.use("/crm/api/v1", auth_routes);
 
+app.use("/crm/api/v1", user_routes)
 mongoose.connect(process.env.MONGODB_URI)
 .then(async () => {
 
