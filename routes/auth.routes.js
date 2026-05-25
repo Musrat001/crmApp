@@ -7,6 +7,5 @@ const validateUserReqBody = require("../middlewares/verifyUserBody.middlewares.j
 
 router.post("/auth/signup", [validateUserReqBody.validateUserRequestBody], authController.signUp);
 router.post("/auth/login", authController.login);
-router.get("/auth/users", authController.users);
 
 module.exports = router;
