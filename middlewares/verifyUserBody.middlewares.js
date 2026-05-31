@@ -1,14 +1,11 @@
 const User = require("../models/user.models.js");
 const constant = require("../utils/constant.js");
-validateUserRequestBody = async (req, res, next) => {
 
-    // console.log(`request data is ${req.body.user}`);
-    // console.log(`request data is ${req.body.userId}`);
-    // console.log(`request data is ${req.body.email}`);
-    // console.log(`request data is ${req.body.password}`);
-    // console.log(`request data is ${req.body.userType}`);
+
+
+validateUserRequestBody = async (req, res, next) => {
     console.log(req.method);
-    
+
     if (!req.body.name) {
         res.status(400).send({
             message: "User name required.."
@@ -63,6 +60,34 @@ validateUserRequestBody = async (req, res, next) => {
 
 }
 
+
+const validateUserStatusAndUserType = (req, res, next) => {
+    // validating the userType 
+
+    const userType = req.body.userType;
+    const validUserTypes = [constant.userTypes.admin, constant.userTypes.customer, constant.userTypes.engineer];
+    if (userType && !validUserTypes.includes(userType)) {
+        res.status(402).send({
+            message: "Provide valid User Type, Valide user types are CUSTOMER | ENGINEER | ADMIN"
+        });
+    }
+
+    // validating the user Status
+
+    const userStatus = req.body.userStatus;
+    const validUserStatus = [constant.userStatus.approved, constant.userStatus.blocked, constant.userStatus.pending];
+
+
+    if (userStatus && !validUserStatus.includes(userStatus)) {
+        res.status(402).send({
+            message: "provide proper user Status, vlaid user status are APPROVED | PENDING | BLOCKED"
+        });
+    }
+
+    next();
+}
+
 module.exports = {
-    validateUserRequestBody: validateUserRequestBody
+    validateUserRequestBody: validateUserRequestBody,
+    validateUserStatusAndUserType: validateUserStatusAndUserType
 }
