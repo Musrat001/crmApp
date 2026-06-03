@@ -3,28 +3,28 @@ const constant = require("../utils/constant.js");
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     userId: {
         type: String,
-        require: true,
+        required: true,
         unique: true
     },
     password: {
         type: String,
-        require: true,
+        required: true,
         minLength: 7
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         minLength: 7,
         unique: true,
     },
     userType: {
         type: String,
         enumL: [constant.userTypes.customer, constant.userTypes.admin, constant.userTypes.engineer],
-        reqire: true,
+        required: true,
         default: constant.userTypes.customer
     },
     userStatus: {
