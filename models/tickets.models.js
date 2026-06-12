@@ -7,7 +7,7 @@ const ticketSchema = new mongoose.Schema({
         required: true
 
     },
-    titlePriority: {
+    ticketPriority: {
         type: String,
         required: true,
         default: 4
